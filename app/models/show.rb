@@ -1,3 +1,9 @@
 class Show < ActiveRecord::Base
   has_many :characters
+  
+  def actors_list
+    self.characters.collect do |character|
+      character.actor.name
+    end
+  end
 end
